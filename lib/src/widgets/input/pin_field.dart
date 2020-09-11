@@ -21,7 +21,6 @@ class _PinFieldState extends State<PinField> {
         textAlign: TextAlign.center,
         style: TextStyle(
           fontWeight: FontWeight.bold,
-          color: Colors.black87,
           fontSize: 25.0,
           letterSpacing: 15.0,
         ),
@@ -44,8 +43,7 @@ class _PinFieldState extends State<PinField> {
           enabledBorder: const OutlineInputBorder(
               borderSide: const BorderSide(color: Colors.grey, width: 0.5)),
           focusedBorder: OutlineInputBorder(
-              borderSide:
-                  BorderSide(color: Theme.of(context).accentColor, width: 1.0)),
+              borderSide: BorderSide(color: Theme.of(context).accentColor, width: 1.0)),
         ),
         onChanged: (String value) {
           if (value.length == widget.pinLength) {

@@ -9,7 +9,6 @@ class OtpField extends TextFormField {
           textAlign: TextAlign.center,
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            color: Colors.black87,
             fontSize: 25.0,
           ),
           autofocus: true,
@@ -23,10 +22,10 @@ class OtpField extends TextFormField {
             hintText: 'ENTER',
             hintStyle: const TextStyle(color: Colors.grey, fontSize: 14.0),
             contentPadding: const EdgeInsets.all(10.0),
-            enabledBorder: OutlineInputBorder(
-                borderSide: const BorderSide(color: Colors.grey, width: 0.5)),
-            focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: borderColor, width: 1.0)),
+            enabledBorder:
+                OutlineInputBorder(borderSide: const BorderSide(color: Colors.grey, width: 0.5)),
+            focusedBorder:
+                OutlineInputBorder(borderSide: BorderSide(color: borderColor, width: 1.0)),
           ),
         );
 }

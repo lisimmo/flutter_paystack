@@ -20,7 +20,6 @@ class _OtpWidgetState extends BaseState<OtpWidget> {
   String _otp;
   var heightBox = const SizedBox(height: 20.0);
 
-
   @override
   Widget buildChild(BuildContext context) {
     return new CustomAlertDialog(
@@ -34,15 +33,13 @@ class _OtpWidgetState extends BaseState<OtpWidget> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                new Image.asset('assets/images/otp.png',
-                    width: 30.0, package: 'flutter_paystack'),
+                new Image.asset('assets/images/otp.png', width: 30.0, package: 'flutter_paystack'),
                 heightBox,
                 new Text(
                   widget.message,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     fontWeight: FontWeight.w500,
-                    color: Colors.black87,
                     fontSize: 15.0,
                   ),
                 ),

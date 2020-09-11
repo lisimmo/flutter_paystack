@@ -36,7 +36,7 @@ class BaseTextField extends StatelessWidget {
       decoration: new InputDecoration(
         border: OutlineInputBorder(),
         labelText: labelText,
-        labelStyle: const TextStyle(color: Colors.grey, fontSize: 14.0),
+        labelStyle: const TextStyle(fontSize: 14.0),
         suffixIcon: suffix == null
             ? null
             : new Padding(
@@ -46,11 +46,10 @@ class BaseTextField extends StatelessWidget {
         errorStyle: const TextStyle(fontSize: 12.0),
         errorMaxLines: 3,
         isDense: true,
-        enabledBorder: OutlineInputBorder(
-            borderSide: const BorderSide(color: Colors.grey, width: 0.5)),
+        enabledBorder:
+            OutlineInputBorder(borderSide: const BorderSide(color: Colors.grey, width: 0.5)),
         focusedBorder: OutlineInputBorder(
-            borderSide:
-                BorderSide(color: Theme.of(context).accentColor, width: 1.0)),
+            borderSide: BorderSide(color: Theme.of(context).accentColor, width: 1.0)),
         hintText: hintText,
       ),
     );

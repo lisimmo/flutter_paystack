@@ -57,7 +57,7 @@ class CustomAlertDialog extends StatelessWidget {
     Widget widget;
     if (fullscreen) {
       widget = new Material(
-        color: Colors.white,
+        //color: Colors.white,
         child: new Container(
             child: onCancelPress == null
                 ? new Padding(
@@ -66,8 +66,7 @@ class CustomAlertDialog extends StatelessWidget {
                       vertical: 20.0,
                     ),
                     child: new Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: children),
+                        crossAxisAlignment: CrossAxisAlignment.start, children: children),
                   )
                 : new Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -96,7 +95,7 @@ class CustomAlertDialog extends StatelessWidget {
       var body = new Material(
         type: MaterialType.card,
         borderRadius: new BorderRadius.circular(10.0),
-        color: Colors.white,
+        //color: Colors.white,
         child: new Column(
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -166,10 +165,8 @@ class CustomDialog extends StatelessWidget {
         child: new Center(
           child: new ConstrainedBox(
             constraints: new BoxConstraints(
-                minWidth: expanded
-                    ? math.min(
-                        (MediaQuery.of(context).size.width - 40.0), 332.0)
-                    : 280.0),
+                minWidth:
+                    expanded ? math.min((MediaQuery.of(context).size.width - 40.0), 332.0) : 280.0),
             child: new Material(
               elevation: 50.0,
               type: MaterialType.transparency,

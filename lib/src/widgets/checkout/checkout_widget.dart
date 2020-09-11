@@ -41,8 +41,7 @@ class CheckoutWidget extends StatefulWidget {
   _CheckoutWidgetState createState() => _CheckoutWidgetState(charge);
 }
 
-class _CheckoutWidgetState extends BaseState<CheckoutWidget>
-    with TickerProviderStateMixin {
+class _CheckoutWidgetState extends BaseState<CheckoutWidget> with TickerProviderStateMixin {
   static const tabBorderRadius = BorderRadius.all(Radius.circular(4.0));
   final Charge _charge;
   var _currentIndex = 0;
@@ -64,10 +63,8 @@ class _CheckoutWidgetState extends BaseState<CheckoutWidget>
     _initPaymentMethods();
     _currentIndex = _getCurrentTab();
     _showTabs = widget.method == CheckoutMethod.selectable ? true : false;
-    _tabController = new TabController(
-        vsync: this,
-        length: _methodWidgets.length,
-        initialIndex: _currentIndex);
+    _tabController =
+        new TabController(vsync: this, length: _methodWidgets.length, initialIndex: _currentIndex);
     _tabController.addListener(_indexChange);
     _animationController = new AnimationController(
       duration: const Duration(milliseconds: 500),
@@ -140,8 +137,7 @@ class _CheckoutWidgetState extends BaseState<CheckoutWidget>
       content: new Container(
         child: new SingleChildScrollView(
           child: new Container(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+              padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
               child: Column(
                 children: <Widget>[
                   _showProcessingError()
@@ -171,8 +167,7 @@ class _CheckoutWidgetState extends BaseState<CheckoutWidget>
             overflow: TextOverflow.ellipsis,
             style: const TextStyle(color: Colors.grey, fontSize: 12.0),
           ),
-        if (!widget.hideAmount &&
-            (_charge.amount != null || !_charge.amount.isNegative))
+        if (!widget.hideAmount && (_charge.amount != null || !_charge.amount.isNegative))
           Row(
             key: Key("DisplayAmount"),
             mainAxisAlignment: MainAxisAlignment.end,
@@ -180,7 +175,7 @@ class _CheckoutWidgetState extends BaseState<CheckoutWidget>
             children: <Widget>[
               const Text(
                 'Pay',
-                style: const TextStyle(fontSize: 14.0, color: Colors.black54),
+                style: const TextStyle(fontSize: 14.0),
               ),
               SizedBox(
                 width: 5.0,
@@ -243,8 +238,7 @@ class _CheckoutWidgetState extends BaseState<CheckoutWidget>
           isScrollable: true,
           unselectedLabelColor: Colors.black54,
           labelColor: accentColor,
-          labelStyle:
-              new TextStyle(fontSize: 14.0, fontWeight: FontWeight.w500),
+          labelStyle: new TextStyle(fontSize: 14.0, fontWeight: FontWeight.w500),
           indicator: new ShapeDecoration(
             shape: RoundedRectangleBorder(
                   borderRadius: tabBorderRadius,
@@ -317,9 +311,8 @@ class _CheckoutWidgetState extends BaseState<CheckoutWidget>
 
   void _onProcessingChange(bool processing) {
     setState(() {
-      _tabHeight = processing || _paymentSuccessful || _showProcessingError()
-          ? 0.0
-          : kFullTabHeight;
+      _tabHeight =
+          processing || _paymentSuccessful || _showProcessingError() ? 0.0 : kFullTabHeight;
       processing = processing;
     });
   }
@@ -423,8 +416,7 @@ class _CheckoutWidgetState extends BaseState<CheckoutWidget>
     CheckoutResponse response = _response;
     if (response == null) {
       response = CheckoutResponse.defaults();
-      response.method =
-          _tabController.index == 0 ? CheckoutMethod.card : CheckoutMethod.bank;
+      response.method = _tabController.index == 0 ? CheckoutMethod.card : CheckoutMethod.bank;
     }
     if (response.card != null) {
       response.card.nullifyNumber();

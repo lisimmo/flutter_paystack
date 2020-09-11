@@ -36,22 +36,19 @@ class _BirthdayWidgetState extends BaseState<BirthdayWidget> {
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
         child: new Column(
           children: <Widget>[
-            new Image.asset('assets/images/dob.png',
-                width: 30.0, package: 'flutter_paystack'),
+            new Image.asset('assets/images/dob.png', width: 30.0, package: 'flutter_paystack'),
             _heightBox,
             new Text(
               widget.message,
               textAlign: TextAlign.center,
               style: const TextStyle(
                 fontWeight: FontWeight.w500,
-                color: Colors.black87,
                 fontSize: 15.0,
               ),
             ),
             _heightBox,
             _pickedDate == null
-                ? new WhiteButton(
-                    onPressed: _selectBirthday, text: 'Pick birthday')
+                ? new WhiteButton(onPressed: _selectBirthday, text: 'Pick birthday')
                 : new WhiteButton(
                     onPressed: _selectBirthday,
                     flat: true,
@@ -72,8 +69,7 @@ class _BirthdayWidgetState extends BaseState<BirthdayWidget> {
                 ? new Container()
                 : new AccentButton(onPressed: _onAuthorize, text: 'Authorize'),
             new Container(
-              padding:
-                  new EdgeInsets.only(top: _pickedDate == null ? 15.0 : 20.0),
+              padding: new EdgeInsets.only(top: _pickedDate == null ? 15.0 : 20.0),
               child: new WhiteButton(
                 onPressed: onCancelPress,
                 text: 'Cancel',
@@ -127,9 +123,7 @@ class _BirthdayWidgetState extends BaseState<BirthdayWidget> {
       DateTime result = await showDatePicker(
           context: context,
           selectableDayPredicate: (DateTime val) =>
-              val.year > now.year && val.month > now.month && val.day > now.day
-                  ? false
-                  : true,
+              val.year > now.year && val.month > now.month && val.day > now.day ? false : true,
           initialDate: now,
           firstDate: new DateTime(minimumYear),
           lastDate: now);
@@ -147,15 +141,13 @@ class _BirthdayWidgetState extends BaseState<BirthdayWidget> {
       decoration: const BoxDecoration(
           color: Colors.white,
           borderRadius: const BorderRadius.all(const Radius.circular(3.0)),
-          border:
-              const Border(top: side, right: side, bottom: side, left: side)),
+          border: const Border(top: side, right: side, bottom: side, left: side)),
       child: new Text(
         text,
         textAlign: TextAlign.center,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
         style: const TextStyle(
-          color: Colors.black87,
           fontWeight: FontWeight.w500,
         ),
       ),
