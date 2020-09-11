@@ -98,7 +98,10 @@ class _CheckoutWidgetState extends BaseState<CheckoutWidget> with TickerProvider
               child: Text(
                 "Secured by",
                 key: Key("SecuredBy"),
-                style: TextStyle(fontSize: 10),
+                style: TextStyle(
+                  fontSize: 10,
+                  color: Theme.of(context).textTheme.caption.color,
+                ),
               ),
             )
           ],

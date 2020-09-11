@@ -54,7 +54,10 @@ class _CardCheckoutState extends BaseCheckoutMethodState<CardCheckout> {
           new Text(
             Strings.cardInputInstruction,
             key: Key("InstructionKey"),
-            style: const TextStyle(fontWeight: FontWeight.w500),
+            style: TextStyle(
+              fontWeight: FontWeight.w500,
+              color: Theme.of(context).textTheme.bodyText1.color,
+            ),
           ),
           new SizedBox(
             height: 20.0,
@@ -121,13 +124,12 @@ class _CardCheckoutState extends BaseCheckoutMethodState<CardCheckout> {
     }
 
     new CardTransactionManager(
-            charge: charge,
-            context: context,
-            service: widget.service,
-            beforeValidate: (transaction) => handleBeforeValidate(transaction),
-            onSuccess: (transaction) => handleOnSuccess(transaction),
-            onError: (error, transaction) => handleOnError(error, transaction))
-        .chargeCard();
+        charge: charge,
+        context: context,
+        service: widget.service,
+        beforeValidate: (transaction) => handleBeforeValidate(transaction),
+        onSuccess: (transaction) => handleOnSuccess(transaction),
+        onError: (error, transaction) => handleOnError(error, transaction)).chargeCard();
   }
 
   void handleError(String message, String reference, bool verify) {
