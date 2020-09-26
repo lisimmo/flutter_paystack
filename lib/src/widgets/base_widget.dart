@@ -27,8 +27,7 @@ abstract class BaseState<T extends StatefulWidget> extends State<T> {
 
     var returnValue = getPopReturnValue();
     if (alwaysPop ||
-        (returnValue != null &&
-            (returnValue is CheckoutResponse && returnValue.status == true))) {
+        (returnValue != null && (returnValue is CheckoutResponse && returnValue.status == true))) {
       Navigator.of(context).pop(returnValue);
       return false;
     }
@@ -40,7 +39,13 @@ abstract class BaseState<T extends StatefulWidget> extends State<T> {
             content: text,
             actions: <Widget>[
               new CupertinoDialogAction(
-                child: const Text('Yes'),
+                child: Text(
+                  'Yes',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: Theme.of(context).accentColor,
+                  ),
+                ),
                 isDestructiveAction: true,
                 onPressed: () {
                   Navigator.pop(context, true); // Returning true to
@@ -48,11 +53,16 @@ abstract class BaseState<T extends StatefulWidget> extends State<T> {
                 },
               ),
               new CupertinoDialogAction(
-                child: const Text('No'),
+                child: Text(
+                  'No',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    color: Theme.of(context).accentColor,
+                  ),
+                ),
                 isDefaultAction: true,
                 onPressed: () {
-                  Navigator.pop(context,
-                      false); // Pops the confirmation dialog but not the page.
+                  Navigator.pop(context, false); // Pops the confirmation dialog but not the page.
                 },
               ),
             ],
@@ -61,16 +71,27 @@ abstract class BaseState<T extends StatefulWidget> extends State<T> {
             content: text,
             actions: <Widget>[
               new FlatButton(
-                  child: const Text('NO'),
+                  child: Text(
+                    'NO',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      color: Theme.of(context).accentColor,
+                    ),
+                  ),
                   onPressed: () {
-                    Navigator.of(context).pop(
-                        false); // Pops the confirmation dialog but not the page.
+                    Navigator.of(context)
+                        .pop(false); // Pops the confirmation dialog but not the page.
                   }),
               new FlatButton(
-                  child: const Text('YES'),
+                  child: Text(
+                    'YES',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      color: Theme.of(context).accentColor,
+                    ),
+                  ),
                   onPressed: () {
-                    Navigator.of(context).pop(
-                        true); // Returning true to _onWillPop will pop again.
+                    Navigator.of(context).pop(true); // Returning true to _onWillPop will pop again.
                   })
             ],
           );
